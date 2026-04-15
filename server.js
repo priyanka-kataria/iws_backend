@@ -24,8 +24,8 @@ const pool = new Pool({
 // Endpoint to get table data
 app.get('/api/data', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM gfs_nc_outputs limit 100');
-    res.json(result.rows);
+    const result = await pool.query('SELECT * FROM gfs_nc_outputs limit 10');
+    res.send(result.rows);
   } catch (err) {
     res.status(500).send(err.message);
   }
